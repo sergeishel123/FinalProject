@@ -1,0 +1,24 @@
+{% include 'flatpages/default.html' %}
+{% block title %}
+Страница пользователя
+{% endblock title %}
+<style>
+    body {background-color: powderblue}
+</style>
+{% block content %}
+<p></p>
+<button><a href = '{% url "logout" %}'>Выйти из системы</a></button>
+<center>
+    <h3>
+        Страница авторизованного пользователя <i>{{user.username}}</i>
+    </h3>
+    <p></p>
+    <h4>
+        Отклики на ваши объявления:
+    </h4>
+        {% for comment in comments %}
+            <p>{{comment.name}}</p>
+        {% endfor %}
+
+</center>
+{% endblock content %}
